@@ -148,37 +148,40 @@ for(d in c("Biomass", "Catch")){
     if(mean(data[[i]][[2]])== 0){ next }
     
     # 4. Open png file
-    png(paste0("csv/", d, "/FG", i, ".png"), width = 750, height = 500)
+    # 4. Open png file
+    png(paste0("csv/", d, "/FG", i, ".png"), width = 1000, height = 732)
     
     # 5. Make plot
     #par "oma" allows to increase the space for title of the axis (in this case to enter "Biomass (T/km2))
-    par(oma = c(0, 3, 0, 0))
+    par(oma = c(0, 10, 1, 0), mgp = c(6, 3, 0))
     plot(data[[i]]$years, data[[i]]$predicted, 
-         xlim=c(2003, 2022), ylim=c(0, ymax), xaxt="n",yaxt="n", ann=FALSE, las=1,
+         xlim=c(2003, 2022), ylim=c(0, ymax), xaxt="n",yaxt="n", ann=FALSE, las=1, cex.axis=2.5, text.font=3,
          type="l",  
-         main= paste0(fg$fg_name[i], " - FG", i), cex.main=1.7, cex.axis = 1.5, cex.lab = 1.5)
-    mtext("Biomass (T/km2)", cex=1.7, line=5.5, side=2)
-    mtext("Time", side=1, line=3, cex=1.7, font=1, las=1)
+         main= paste0(fg$fg_name[i], " - FG", i), cex.main=5, cex.axis =5, cex.lab =5)
+    mtext("", cex=2.5, line=2.5, side=2)
+    mtext("", side=1, line=3, cex=2.5, font=1, las=1)
     title = paste0(fg$fg_name[i], " - FG", i)
-    mtext(title, cex = 2, side =3, line =1.5)
-    axis(1,at=seq(2003,2022,3),las=0, cex.axis=1.4)
-    axis(2,las=2, ylim=c(0, ymax), cex.axis=1.4)
+    mtext(title, cex = 5, side =3, line =1.5)
+    axis(1,at=seq(2003,2022,6),las=1, cex.axis=4.5)
+    axis(2,las=2, ylim=c(0, ymax), cex.axis=4.5)
     polygon(c(data[[i]]$years, rev(data[[i]]$years)),c(data[[i]]$p95, rev(data[[i]]$p05)),
             col = " lightsteelblue1", border=NA)
-    points(data[[i]]$years, data[[i]]$predicted, type='l', lwd=2, lty=1)
+    points(data[[i]]$years, data[[i]]$predicted, type='l', lwd=4, lty=1)
     if(ncol(data[[i]]) ==6){
-      points(data[[i]]$years, data[[i]]$observed, pch=19, cex=1.5) 
+      points(data[[i]]$years, data[[i]]$observed, pch=19, cex=2.2) 
     }
     
     leyenda <- cor.test(data[[i]]$year, data[[i]]$predicted, method="spearman")
     pvalor <- ifelse(round(leyenda$p.value, 3) == 0, "<0.001", round(leyenda$p.value, 3))
     rho <-round(leyenda$estimate,3)
-    legend ("topright", legend=c(paste("p-value =",  pvalor), paste("rho =", rho)),
-            bty="n", cex=1.5, ncol=1, text.font=1.5, box.lty=0, y.intersp = 0.9)
+    legend ("bottomleft", legend=c(paste("p-value =",  pvalor), paste("rho =", rho)),
+            bty="n", cex=3.5, ncol=1, text.font=2.5, box.lty=0, y.intersp = 0.9)
     # 6. Close device to save plot
     dev.off()
   }
 }
+
+rm(data, d, i, rho, pvalor, leyenda, ymin, ymax)
 
 rm(data, d, i, rho, pvalor, leyenda, ymin, ymax)
 
