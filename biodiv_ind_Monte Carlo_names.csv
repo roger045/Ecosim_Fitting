@@ -1,0 +1,40 @@
+y.label;units
+Total B;t/km2
+Commercial B;t/km2
+Fish B;t/km2
+Invertebrates B;t/km2
+Invertebrates / Fish B;Biomass ratio
+Demersal B;t/km2
+Pelagic B;t/km2
+Demersal / Pelagic B;Biomass ratio
+Predatory B;t/km2
+Kempton's Q;Kempton's Q
+Shannon diversity;Shannon diversity
+Total C;t/km2/year
+Fish C;t/km2/year
+Invertebrate C;t/km2/year
+Invertebrates / Fish C;Catch ratio
+Demersal C;t/km2/year
+Pelagic C;t/km2/year
+Demersal / pelagic C;Catch ratio
+Predatory C;t/km2/year
+Discards;t/km2/year
+TL catch;TL
+MTI;MTI
+TL community;TL
+TL community 2;TL
+TL community 3.25;TL
+TL community 4;TL
+Intrinsic Vul. Index;IVI
+Endemics B;t/km2
+Endemics C;t/km2/year
+IUCN species B;t/km2
+IUCN species C;t/km2/year
+Mammals, birds & reptiles B;t/km2
+Mammals, birds & reptiles C;t/km2/year
+ML of fish community;cm
+ML of fish C;cm
+MW of fish community;kg
+MW of fish C;kg
+MLS of fish community;years
+MLS of fish C;Years
