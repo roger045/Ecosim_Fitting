@@ -63,7 +63,7 @@ for (i in seq_along(indicators)) {
   write.csv(indicators[[i]], file = paste0(nombre_df, ".csv"), row.names = FALSE)
 }
 # Each indicator will be saved in a .csv file. Like Indicator - 1, Indicator - 2,... 
-# Each number corresponds to the indicator with the same row number in the file biodiv_ind_Monte Carlo_names.csv
+# Each number corresponds to the indicator with the same row number-1 in the file biodiv_ind_Monte Carlo_names.csv
 
 ## 5. PLOTS OF ECOLOGICAL INDICATORS OVER TIME
 ## ==========================================
